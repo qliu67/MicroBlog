@@ -11,7 +11,7 @@
       You can record your life, share your posts with friends, and start a relationship with others.
     </p>
     <p>
-      <a class="btn btn-lg btn-success" href="#" role="button">Get Started!</a>
+      <a class="btn btn-lg btn-success" href="{{ route('signup') }}" role="button">Get Started!</a>
     </p>
   </div>
 @stop
