@@ -16,14 +16,14 @@
                   <form action="{{ route('logout') }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                    <button class="btn btn-block btn-danger" type="submit" name="button">Sign out</button>
+                    <button class="btn btn-block btn-danger" type="submit" name="button">Logout</button>
                   </form>
                 </a>
               </div>
             </li>
           @else
             <li class="nav-item"><a class="nav-link" href="{{ route('help') }}">Help</a></li>
-            <li class="nav-item" ><a class="nav-link" href="{{ route('login') }}">Signin</a></li>
+            <li class="nav-item" ><a class="nav-link" href="{{ route('login') }}">Login</a></li>
           @endif
         </ul>
       </div>
