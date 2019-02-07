@@ -33,4 +33,29 @@ class UsersController extends Controller
         session()->flash('success', 'Welcome to use your personal blog!');
         return redirect()->route('users.show', [$user]);
     }
+
+    // edit user information
+    public function edit(User $user) {
+        return view('users.edit', compact('user'));
+    }
+
+    // submit edition
+    public function update(User $user, Request $request) {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:6']);
+
+        $data = [];
+        if ($request->name) {
+            $data['name'] = $request->name;
+        }
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $user->update($data);
+
+        session()->flash('success', 'You profile is successfully updated!');
+
+        return redirect()->route('users.show', $user);
+    }
 }
